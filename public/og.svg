@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f6f4ee"/>
+  <rect x="762" width="438" height="630" fill="#e8ece5"/>
+  <path d="M762 0v630" stroke="#d9d9d0"/>
+  <text x="82" y="104" fill="#3978b8" font-family="monospace" font-size="18" letter-spacing="3">ENTERPRISE ANALYTICS · BUSINESS INSIGHT · AI</text>
+  <text x="80" y="250" fill="#142c46" font-family="Arial,sans-serif" font-size="70" font-weight="700" letter-spacing="-3">Analytics is not</text>
+  <text x="80" y="338" fill="#142c46" font-family="Arial,sans-serif" font-size="70" font-weight="700" letter-spacing="-3">about numbers.</text>
+  <text x="80" y="426" fill="#3978b8" font-family="Arial,sans-serif" font-size="60" font-weight="600" letter-spacing="-2">It’s about knowledge</text>
+  <text x="80" y="500" fill="#3978b8" font-family="Arial,sans-serif" font-size="60" font-weight="600" letter-spacing="-2">that changes business.</text>
+  <circle cx="981" cy="309" r="176" fill="none" stroke="#142c46" stroke-opacity=".14"/>
+  <circle cx="981" cy="309" r="119" fill="none" stroke="#142c46" stroke-opacity=".19"/>
+  <circle cx="981" cy="309" r="67" fill="#142c46"/>
+  <text x="981" y="305" fill="#fff" font-family="monospace" font-size="13" text-anchor="middle" letter-spacing="1">KNOWLEDGE</text>
+  <text x="981" y="335" fill="#9cc7e7" font-family="Arial,sans-serif" font-size="28" text-anchor="middle">↗</text>
+  <circle cx="861" cy="175" r="9" fill="#dc8b52"/><circle cx="1103" cy="224" r="7" fill="#718c62"/><circle cx="868" cy="439" r="6" fill="#3978b8"/>
+  <text x="80" y="580" fill="#142c46" font-family="Arial,sans-serif" font-size="24" font-weight="700">syndata<tspan fill="#3978b8">.</tspan></text>
+</svg>

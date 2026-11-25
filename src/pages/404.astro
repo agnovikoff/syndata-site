@@ -1,0 +1,8 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<SiteLayout title="Page not found" description="This page could not be found.">
+  <section class="not-found"><p class="eyebrow">404 / Not found</p><h1>That page<br /><em>isn’t here.</em></h1><a class="button-link" href={`${base}/`}>Return home <span class="arrow">↗</span></a></section>
+</SiteLayout>
+<style>.not-found{padding:110px 0;min-height:55vh}.not-found h1{font:700 clamp(54px,8vw,90px)/1.02 Manrope,sans-serif;letter-spacing:-.06em;color:var(--navy);margin:20px 0 30px}.not-found h1 em{font-style:normal;color:var(--blue)}</style>
