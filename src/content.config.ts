@@ -14,6 +14,8 @@ const insights = defineCollection({
     reproduced: z.boolean().default(false),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    imageWidth: z.number().int().positive().optional(),
+    imageHeight: z.number().int().positive().optional(),
   }),
 });
 

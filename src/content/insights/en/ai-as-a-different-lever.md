@@ -9,6 +9,8 @@ topics: [AI, Organization design]
 reproduced: true
 image: /images/insights/ai-lever-two-kinds.webp
 imageAlt: An infographic comparing the trade-off of a mechanical lever with AI leverage, where execution scales while human responsibility remains limited.
+imageWidth: 1254
+imageHeight: 1254
 ---
 
 In mechanics, you gain more distance at the expense of force. The total amount of work remains the same, and is even likely to increase due to friction.
