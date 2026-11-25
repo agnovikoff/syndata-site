@@ -7,7 +7,7 @@ publishedAt: 2026-11-23
 originalUrl: https://www.linkedin.com/feed/update/urn:li:activity:7530569705099743232/
 topics: [AI, Organization design]
 reproduced: true
-image: /images/insights/ai-lever-two-kinds.png
+image: /images/insights/ai-lever-two-kinds.webp
 imageAlt: An infographic comparing the trade-off of a mechanical lever with AI leverage, where execution scales while human responsibility remains limited.
 ---
 
