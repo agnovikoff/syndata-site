@@ -1,0 +1,26 @@
+---
+import { ui } from '../i18n/ui';
+import { getCollection } from 'astro:content';
+const { lang = 'en' } = Astro.props;
+const t = ui[lang];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const root = lang === 'ru' ? `${base}/ru` : base;
+const pagePath = Astro.url.pathname.replace(base, '').replace(/^\/ru(?=\/|$)/, '') || '/';
+const allPosts = await getCollection('insights');
+const currentArticleKey = pagePath.match(/^\/insights\/([^/]+)\/?$/)?.[1];
+const hasRussianArticle = currentArticleKey && allPosts.some((post) => post.data.lang === 'ru' && post.data.translationKey === currentArticleKey);
+const hasEnglishArticle = currentArticleKey && allPosts.some((post) => post.data.lang === 'en' && post.data.translationKey === currentArticleKey);
+const languageHref = lang === 'ru'
+  ? `${base}${currentArticleKey && hasEnglishArticle ? `/insights/${currentArticleKey}/` : pagePath}`
+  : `${base}/ru${currentArticleKey ? (hasRussianArticle ? `/insights/${currentArticleKey}/` : '/insights/') : pagePath}`;
+---
+
+<header class="site-header">
+  <a class="wordmark" href={`${root}/`} aria-label="Syndata home">syndata<span>.</span></a>
+  <nav aria-label={lang === 'ru' ? 'Основная навигация' : 'Main navigation'}>
+    <a href={`${root}/insights/`}>{t.nav.insights}</a>
+    <a href={`${root}/about/`}>{t.nav.about}</a>
+    <a href={`${root}/contact/`}>{t.nav.contact}</a>
+  </nav>
+  <a class="language-switch" href={languageHref} lang={lang === 'ru' ? 'en' : 'ru'}>{t.language}</a>
+</header>

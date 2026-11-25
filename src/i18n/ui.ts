@@ -1,0 +1,28 @@
+export const ui = {
+  en: {
+    nav: { insights: 'Insights', about: 'About', contact: 'Contact' },
+    language: 'Русский',
+    languageHref: '/ru/',
+    latest: 'Recent notes',
+    allInsights: 'All insights',
+    readNote: 'Read the note',
+    original: 'Read the original on LinkedIn',
+    back: 'Back to insights',
+    englishNotice: 'This note is currently available in English.',
+    rss: 'RSS feed',
+    footer: 'From business data to knowledge that helps people act.',
+  },
+  ru: {
+    nav: { insights: 'Публикации', about: 'Об авторе', contact: 'Контакты' },
+    language: 'English',
+    languageHref: '/',
+    latest: 'Новые заметки',
+    allInsights: 'Все публикации',
+    readNote: 'Читать заметку',
+    original: 'Открыть оригинал в LinkedIn',
+    back: 'К публикациям',
+    englishNotice: 'Полный текст заметки пока доступен только на английском.',
+    rss: 'RSS-лента',
+    footer: 'От бизнес-данных — к знаниям, которые помогают действовать.',
+  },
+} as const;

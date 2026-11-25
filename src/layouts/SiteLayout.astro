@@ -1,0 +1,58 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import { ui } from '../i18n/ui';
+const { title, description, lang = 'en', canonicalPath, image = '/og.svg' } = Astro.props;
+const t = ui[lang];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const site = Astro.site ?? new URL('https://syndata.io');
+const currentPath = Astro.url.pathname.replace(base, '') || '/';
+const pagePath = canonicalPath ?? currentPath;
+const canonical = new URL(`${base}${pagePath.startsWith('/') ? pagePath : `/${pagePath}`}`, site);
+const socialImage = new URL(`${base}${image}`, site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f4ee" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title="Syndata Insights" href={`${base}/rss.xml`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Syndata" />
+    <meta property="og:title" content={`${title} — Syndata`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} — Syndata`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <title>{title} — Syndata</title>
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+  </head>
+  <body>
+    <div class="page-shell">
+      <SiteHeader lang={lang} />
+      <main><slot /></main>
+      <footer class="site-footer">
+        <a class="wordmark" href={`${base}/${lang === 'ru' ? 'ru/' : ''}`}>syndata<span>.</span></a>
+        <p>{t.footer}</p>
+        <a href={`${base}/rss.xml`}>{t.rss}</a>
+        <small>© {new Date().getFullYear()} Andrey Novikov</small>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+  :root{font-family:'DM Sans',sans-serif;color:#182b42;background:#f6f4ee;font-synthesis:none;text-rendering:optimizeLegibility;--navy:#142c46;--blue:#3978b8;--green:#718c62;--orange:#dc8b52;--paper:#f6f4ee;--muted:#687481;--line:#d9d9d0}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}a{color:inherit;text-decoration:none}a:hover{color:var(--blue)}button,a{-webkit-tap-highlight-color:transparent}::selection{background:#c9dded;color:var(--navy)}
+  .page-shell{max-width:1240px;padding:0 54px;margin:auto}.site-header{height:92px;display:flex;align-items:center;border-bottom:1px solid var(--line);gap:48px}.wordmark{font:800 24px Manrope,sans-serif;letter-spacing:-1.5px;color:var(--navy)}.wordmark span{color:var(--blue)}.site-header nav{display:flex;gap:32px;margin-left:auto;font-size:14px;color:#425367}.language-switch{font:500 12px 'DM Mono',monospace;border:1px solid var(--line);padding:9px 12px;border-radius:99px;color:var(--navy)}
+  main{min-height:65vh}.site-footer{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;border-top:1px solid var(--line);padding:30px 0;margin-top:86px;color:var(--muted);font-size:13px}.site-footer p{margin:0}.site-footer small{grid-column:1/-1;font:11px 'DM Mono',monospace;letter-spacing:.04em}
+  .eyebrow{font:500 11px 'DM Mono',monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--blue)}.button-link{display:inline-flex;align-items:center;gap:13px;background:var(--navy);color:#fff;border-radius:5px;padding:14px 18px;font-size:14px;font-weight:600;transition:transform .2s,background .2s}.button-link:hover{color:#fff;background:#244665;transform:translateY(-2px)}.text-link{color:var(--blue);font-weight:600}.arrow{font-size:18px}
+  @media(max-width:720px){.page-shell{padding:0 22px}.site-header{height:76px;gap:16px}.site-header nav{gap:14px;font-size:12px}.wordmark{font-size:21px}.language-switch{padding:8px 9px;font-size:11px}.site-footer{grid-template-columns:1fr auto;gap:14px}.site-footer p{grid-column:1/-1;grid-row:2}.site-footer small{grid-column:1/-1}}
+</style>
