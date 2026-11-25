@@ -15,7 +15,7 @@ const original = post.data.originalUrl;
   <article class="article">
     <a class="back" href={`${base}/insights/`}>← {ui.en.back}</a>
     <header><p class="eyebrow">{post.data.topics.join(' · ')}</p><h1>{post.data.title}</h1><p class="dek">{post.data.description}</p><div class="meta">Andrey Novikov <span>·</span> {post.data.publishedAt.toLocaleDateString('en', { month: 'long', day: 'numeric', year: 'numeric' })}</div></header>
-    {post.data.image && <figure class="post-image"><img src={`${base}${post.data.image}`} alt={post.data.imageAlt ?? post.data.title} width={post.data.imageWidth} height={post.data.imageHeight} loading="lazy" decoding="async" /><figcaption>Image accompanying the original LinkedIn post</figcaption></figure>}
+    {post.data.image && <figure class="post-image"><img src={`${base}${post.data.image}`} alt={post.data.imageAlt ?? post.data.title} width={post.data.imageWidth} height={post.data.imageHeight} loading="eager" fetchpriority="high" decoding="async" /><figcaption>Image accompanying the original LinkedIn post</figcaption></figure>}
     <div class="article-body"><Content /></div>
     <aside class="source"><div><p class="eyebrow">Source</p><p>{post.data.reproduced ? 'Originally published on LinkedIn. Republished here in full with the original image.' : 'This short note is based on Andrey’s LinkedIn post. It does not expand the original into a longer article.'}</p></div><a class="button-link" href={original} target="_blank" rel="noreferrer">Read the original <span class="arrow">↗</span></a></aside>
   </article>
