@@ -11,6 +11,9 @@ const insights = defineCollection({
     publishedAt: z.coerce.date(),
     originalUrl: z.string().url(),
     topics: z.array(z.string()),
+    reproduced: z.boolean().default(false),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
   }),
 });
 
