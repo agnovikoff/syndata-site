@@ -23,7 +23,7 @@ jobs:
       - name: Build and upload site
         uses: withastro/action@v6
         env:
-          SITE_URL: https://agnovikoff.github.io
+          SITE_URL: https://syndata.io
   deploy:
     needs: build
     runs-on: ubuntu-latest

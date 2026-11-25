@@ -18,7 +18,7 @@ npm run build
 npm run preview
 ```
 
-The GitHub Actions workflow builds and deploys to GitHub Pages. It uses `/syndata-site` as the base path for the repository preview. After review, to connect `syndata.io`, change the workflow's `SITE_URL` to `https://syndata.io` (the Astro config then switches to the root path), add `public/CNAME` containing `syndata.io`, and configure the custom domain in GitHub Pages. DNS is managed separately and is intentionally untouched by this repository change.
+The GitHub Actions workflow builds and deploys to GitHub Pages. It uses `/syndata-site` as the base path for the repository preview. For the custom domain, the workflow sets `SITE_URL` to `https://syndata.io`, and Astro switches to the root path. In the repository, open **Settings → Pages** and set **Custom domain** to `syndata.io`. Because this site is deployed by a custom GitHub Actions workflow, a `CNAME` file is not required. Configure DNS separately at Dynadot; existing non-web records should be preserved.
 
 ## Content policy
 
